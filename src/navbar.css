@@ -1,0 +1,218 @@
+/* Base styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+  }
+  
+  /* Navbar Styles */
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin-top: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
+  
+    /* Additional styling for the container */
+  }
+  
+  .main-content {
+    background-image: url('./assets/ximagecopy.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    
+  
+    /* Adjust the margin or padding to reduce the gap */
+     /* Adjust the value as needed */
+  }
+  
+  .iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* margin-top:-100px; */
+    
+    
+  }
+  
+  
+  .img{
+    width: 100%;
+    height: 100%;
+  }
+  /* Refined Navbar Styles */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: black;
+    color: white;
+    list-style: none;
+  }
+
+.navbar li {
+    display: inline-block;
+}
+
+.logo-item img {
+    display: block;
+    margin: 0 auto;
+    object-fit: contain; /* or use "cover" or "contain" based on your preference */
+    max-height: 100%; /* Ensure the image doesn't exceed the container height */
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-left li {
+    margin-right: 20px; /* Adjust margin between items */
+}
+
+.nav-right li {
+    margin-right: 20px; /* Adjust margin between items */
+}
+
+.register-item, .register-item a {
+    vertical-align: middle; /* Align to the middle */
+}
+
+.register-item a img {
+    vertical-align: middle; /* Align to the middle */
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+a .register-item {
+  margin-top: 8%;
+  vertical-align: middle; /* Align to the middle */
+}
+
+.instagram-logo {
+  display: inline-block; /* Ensure the Instagram logo is treated as an inline block */
+  vertical-align: middle; /* Align to the middle */
+}
+
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+}
+
+.nav-right {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-right li {
+  margin-right: 20px;
+}
+
+
+  
+  .main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+  }
+  
+  .march-section {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  /* Styles for additional sections and footer (adjust as needed) */
+  .other-section {
+    padding: 30px;
+  }
+  
+  .another-section {
+    padding: 20px;
+  }
+
+
+  .mobile-menu {
+    display: none;
+}
+
+.mobile-menu.open {
+    display: block;
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: black;
+    color: white;
+}
+
+
+.mobile-menu-icon {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 50px; /* Adjust the font size as needed */
+  color: white;
+}
+
+.mobile-menu-content {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: black;
+    color: white;
+}
+
+.mobile-menu-content li {
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+/* Media Queries for Responsiveness */
+@media only screen and (max-width: 600px) {
+    .desktop-navbar {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+}
+  
+  /* .footer {
+    background-color:
+    padding: 15px;
+    text-align: center;
+  } */
+  
+/* Media Queries for Responsiveness */

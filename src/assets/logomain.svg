@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="1080mm" height="330mm" version="1.1" viewBox="0 0 1080 330" xmlns="http://www.w3.org/2000/svg">
+ <g transform="matrix(7.399 0 0 7.399 -234.4 -145.16)">
+  <rect transform="matrix(1.3864 0 0 1.3864 -21.672 -40.746)" x="-116.95" y="111.6" width="347.79" height="262.18" rx="7.5669" ry="7.5669" display="none" fill="#dfdfdf" style="-inkscape-stroke:none;paint-order:fill markers stroke"/>
+  <g fill="#fff">
+   <rect x="34.603" y="24.998" width="34.051" height="9.0532" style="-inkscape-stroke:none;paint-order:fill markers stroke"/>
+   <rect x="101.81" y="24.998" width="34.051" height="9.0532" style="-inkscape-stroke:none;paint-order:fill markers stroke"/>
+   <rect x="72.174" y="24.998" width="12.362" height="9.0532" style="-inkscape-stroke:none;paint-order:fill markers stroke"/>
+   <rect x="34.603" y="50.398" width="34.051" height="9.0532" style="-inkscape-stroke:none;paint-order:fill markers stroke"/>
+   <rect x="93.34" y="50.398" width="42.65" height="9.0532" style="-inkscape-stroke:none;paint-order:fill markers stroke"/>
+   <rect transform="rotate(90)" x="26.911" y="-56.728" width="30.134" height="9.0532" style="-inkscape-stroke:none;paint-order:fill markers stroke"/>
+   <rect x="60.32" y="37.499" width="8.332" height="9.0532" style="-inkscape-stroke:none;paint-order:fill markers stroke"/>
+   <rect transform="rotate(90)" x="25.239" y="-123.47" width="15.419" height="9.0532" style="-inkscape-stroke:none;paint-order:fill markers stroke"/>
+   <rect transform="rotate(90)" x="43.76" y="-123.47" width="15.419" height="9.0532" style="-inkscape-stroke:none;paint-order:fill markers stroke"/>
+   <path d="m72.178 37.499h12.234c3.518-0.04345 3.2423 0.11596 4.2028-0.31094 0.77108-0.34268 0.55113-2.2678 0.55113-3.7737 1.6089 0.19476 9.6957-0.47866 9.9561 0.51752 1.488 5.6946-3.8905 9.9447-3.8048 9.8052-2.3562 1.6235-5.0207 2.8972-8.8806 2.8152h-14.258z" stroke-linecap="square" stroke-linejoin="bevel" stroke-width=".36707" style="paint-order:fill markers stroke"/>
+  </g>
+  <text transform="scale(.99565 1.0044)" x="105.93819" y="67.324753" display="none" fill="#ffffff" font-family="'MADE Outer Sans'" font-size="7.7611px" font-weight="bold" letter-spacing="0px" stroke-linecap="square" stroke-linejoin="bevel" stroke-width=".49782" text-align="center" text-anchor="middle" word-spacing="0px" style="-inkscape-stroke:none;paint-order:fill markers stroke" xml:space="preserve"><tspan x="0" y="0" fill="#ffffff" font-family="'MADE Outer Sans'" font-size="7.7611px" font-weight="normal" stroke-width=".49782">INNOVATE  INVOKE  IMPLEMENT</tspan></text>
+  <g fill="#fff" stroke-linecap="square" stroke-linejoin="bevel">
+   <path d="m100.54 50.389h-10.279c-2.9558-0.04345-2.7241 0.11596-3.5312-0.31094-0.64785-0.34268-0.46305-2.2678-0.46305-3.7737-1.3518 0.19476-8.2375-1.0241-8.4325-0.02297-1.132 5.813 2.4198 9.694 3.2643 10.346 1.9796 1.6235 4.2183 2.8972 7.4613 2.8152h11.98z" stroke-width=".33646" style="paint-order:fill markers stroke"/>
+   <path d="m76.491 34.062h10.279c2.9558 0.04345 2.7241-0.11596 3.5312 0.31094 0.64785 0.34268 0.46305 2.2678 0.46305 3.7737 1.3518-0.19476 8.1462 0.47866 8.3649-0.51752 1.2502-5.6946-3.2688-9.9447-3.1967-9.8052-1.9796-1.6235-4.2183-2.8972-7.4613-2.8152h-11.98z" stroke-width=".33646" style="paint-order:fill markers stroke"/>
+   <path transform="matrix(1.3864 0 0 1.3864 -21.672 -40.746)" d="m116.32 47.268 0.0585 4.6187 2.9014 2.9018-0.016 0.01603 4.9184 4.9184-7.8769 7.8769-0.0585 4.6187 4.6757-0.0015 2.9398-2.9398 2e-3 0.0015 3.7558-3.7558v-11.63l-6.6237-6.6237zm24.97 0.0246-4.6757 0.0011-2.9398 2.9398-2e-3 -0.0015-3.7383 3.7386v11.504l6.6968 6.6967 4.6761 0.0015-0.0585-4.6191-2.9015-2.9015 0.016-0.01603-4.9288-4.9288 7.7971-7.7967z" stroke-width=".36065" style="paint-order:fill markers stroke"/>
+  </g>
+ </g>
+</svg>

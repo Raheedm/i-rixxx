@@ -1,0 +1,135 @@
+.section {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 660.48px;
+  background-color: transparent; 
+}
+
+.title {
+  display: block;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-width: none;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: Glitch;
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: rgba(0, 0, 0, 0);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(252, 240, 6);
+  position: relative;
+}
+
+.title h2 {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-width: none;
+}
+
+.dots {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 3.2px;
+}
+
+.dots span {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-width: none;
+  width: 10px;
+  height: 10px;
+  background: rgb(1, 215, 241) none repeat scroll 0% 0%;
+}
+
+.list {
+  font-size: 24px;
+  max-width: 844.8px;
+  grid-template-columns: 390.4px 390.4px;
+  margin: 0;
+  padding: 24px;
+  box-sizing: border-box;
+  scrollbar-width: none;
+  display: grid;
+  width: 100%;
+  gap: 16px;
+  font-weight: 400;
+  list-style: none;
+  
+}
+
+.item {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-width: none;
+  position: relative;
+}
+
+.link {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-width: none;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  --scale: 1.05;
+  color: rgb(252, 240, 6);
+  text-decoration: none;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+}
+
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.item {
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.3s ease;
+}
+
+.hover-image {
+  display: none;
+}
+
+.item:hover .initial-image {
+  display: none;
+}
+
+.item:hover .hover-image {
+  display: inline-block;
+}
+
+@media only screen and (max-width: 600px) {
+  .list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 0 16px;
+  }
+}

@@ -1,0 +1,57 @@
+/* Card Styling */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+.card {
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Use transform for the pop-out effect */
+  margin: 15px auto;
+  box-sizing: border-box;
+  overflow: hidden; /* Ensure the pop-out effect is visible */
+}
+
+.card:hover {
+  background-color: #ffffffa4;
+  transform: scale(1.05); /* Scale the card on hover for a pop-out effect */
+}
+
+.card-content {
+  padding: 16px;
+  text-align: center;
+}
+
+.card-title {
+  font-family: 'Blanka', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.card-description {
+  font-size: 1rem;
+}
+
+/* Making Cards Square */
+.card {
+  width: 300px;
+  height: 300px;
+}
+
+/* Responsive Styling */
+@media (max-width: 900px) {
+  .card {
+    width: calc(50% - 30px);
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 100%;
+    margin: 15px 0;
+  }
+}
