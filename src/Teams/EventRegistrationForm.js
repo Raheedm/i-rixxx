@@ -93,7 +93,9 @@ function TeamRegistration() {
 
                 // Display alert message
                 displayAlert('Team registered successfully', 'success');
-                navigate('/');
+                setTimeout(() => {
+                    navigate('/');
+                }, 6000);
 
             } catch (error) {
                 console.error('Error:', error);
