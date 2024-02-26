@@ -1,0 +1,59 @@
+/* EmbeddedGoogleDoc.css */
+.embedded-doc-container.dark-mode {
+  filter: invert(1) hue-rotate(180deg);
+}
+/* Center the div on laptop screens */
+@media (min-width: 769px) {
+  body {
+      
+  }
+  .embedded-doc-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 650vh;
+      
+  }
+  .embedded-doc-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%; /* Adjusted to 100% */
+      height: 200%; /* Adjusted to 100% */
+      border: 0;
+      overflow: auto;
+  }
+}
+
+/* Maintain aspect ratio for the embedded document */
+/* .embedded-doc-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 129.4118%; 
+  overflow: auto;
+} */
+
+/* Style the iframe */
+.embedded-doc-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150%; 
+  border: 0;
+}
+
+@media (max-width: 768px)/*Mobile screen*/ {
+  .embedded-doc-container {
+      padding-bottom: 150%; /* Adjusted aspect ratio for smaller screens */
+  }
+  .embedded-doc-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+  }
+}

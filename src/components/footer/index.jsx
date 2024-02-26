@@ -4,7 +4,7 @@ import InstagramIcon from '../../assets/SVGs/instaWhite.svg'
 
 import './index.css'
 import { useMatch } from 'react-router-dom'
-
+import waffle from '../../assets/waffle.png'
 const ImgStyle = {
   marginLeft: '2rem',
   width: '2rem',
@@ -29,13 +29,13 @@ const Footer = () => {
         alignItems: 'center',
       }}
     >
-      {/* <Typography variant="body1" className="TextStyle">
+      <Typography variant="body1" className="TextStyle">
         © Copyright I-RIX 2024
-      </Typography> */}
-      
-      {/* <a href="https://www.instagram.com/irix_pccas/" target="_blank">
+        <a href="https://www.instagram.com/irix_pccas/" target="_blank">
         <img src={InstagramIcon} alt="instagram" style={ImgStyle} />
-      </a> */}
+      </a>
+      </Typography>
+      
       
     </div>
   )

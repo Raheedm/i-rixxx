@@ -1,6 +1,11 @@
 .TextStyle{
  color: white;
  margin-right: 3rem;
+ padding-top: 5%;
+}
+.TextStyle a img{
+    margin-top: 0;
+    padding-top: 50%;
 }
 
 @media (max-width: 482px){

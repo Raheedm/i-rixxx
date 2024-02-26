@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './nav.css';
-import headingLogo from './assets/ximagecopy.png';
+// import headingLogo from './assets/ximagecopy.png';
 import InstagramIcon from './assets/SVGs/instaWhite.svg';
 import irix from './assets/logomain.svg';
 
@@ -13,10 +13,10 @@ const Navbar = () => {
 
     const handleBrochureClick = () => {
         // Assuming you have the PDF file in the public folder
-        const pdfUrl = process.env.PUBLIC_URL + '/I-RIX_2K24.pdf';
+        const pdfUrl = process.env.PUBLIC_URL + '/I-RIX_2K24-1.pdf';
         const link = document.createElement('a');
         link.href = pdfUrl;
-        link.download = 'I-RIX_2K24.pdf';
+        link.download = 'I-RIX_2K24-1.pdf';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -26,17 +26,17 @@ const Navbar = () => {
         <div className="home-container">
             {/* Navbar for larger screens */}
             <nav className="navbar desktop-navbar">
-            <ul className="nav-left">
-      <li className="brochure-item" onClick={handleBrochureClick}>
-        Brochure
-      </li>
-    </ul>
+                <ul className="nav-left">
+                    <li className="brochure-item" onClick={handleBrochureClick}>
+                        Brochure
+                    </li>
+                </ul>
 
                 <div className="logo-container">
                     <img src={irix} alt="irix-logo" className="logo" />
                 </div>
                 <ul className="nav-right">
-                    <a href='/eventregister'>
+                    <a href='/Reg'>
                         <li className="register-item">Register</li>
                     </a>
 
@@ -63,12 +63,17 @@ const Navbar = () => {
                 </div>
                 {isMobileMenuOpen && (
                     <ul className="mobile-menu-content">
-                        <li className="brochure-item" onClick={toggleMobileMenu}>
+
+                        <li className="brochure-item" onClick={handleBrochureClick}>
                             Brochure
                         </li>
-                        <li className="register-item" onClick={toggleMobileMenu}>
-                            Register
-                        </li>
+
+                        <a href='/Reg' style={{ textDecoration: 'none', color: 'inherit' }}>
+                            <li className="register-item" onClick={toggleMobileMenu}>
+                                Register
+                            </li>
+                        </a>
+
                         <li className="instagram-item" onClick={toggleMobileMenu}>
                             <a href="https://www.instagram.com/irix_pccas/" target="_blank">
                                 <img src={InstagramIcon} alt="instagram" />

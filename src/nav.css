@@ -8,9 +8,13 @@
     list-style: none;
     /* height: 80px; Remove fixed height to allow dynamic content height */
 }
+.navbar a:visited {
+    color:white;
+}
 
 .navbar li {
     display: inline-block;
+    text-decoration: none;
 }
 
 .logo-item img {

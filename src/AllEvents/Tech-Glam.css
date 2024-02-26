@@ -1,0 +1,57 @@
+/* EmbeddedGoogleDoc.css */
+/* Tech-Glam.css */
+.embedded-doc-container.dark-mode {
+  filter: invert(1) hue-rotate(180deg);
+}
+.embedded-doc-container.dark-mode {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* Center the div on laptop screens */
+@media (min-width: 769px) {
+    body{
+        overflow: auto;
+    }
+    .embedded-doc-container {
+       
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .embedded-doc-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 100%;
+        border: 0;
+        margin-left: 22.5%;
+      }
+  }
+  
+  /* Maintain aspect ratio for the embedded document */
+  .embedded-doc-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    overflow: hidden;
+  }
+  
+  /* Style the iframe */
+  .embedded-doc-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150%;
+    border: 0;
+   
+  }
+  @media (max-width: 768px) {
+    .embedded-doc-container {
+        padding-bottom: 140%; /* Adjust aspect ratio for smaller screens */
+    }
+}
+  

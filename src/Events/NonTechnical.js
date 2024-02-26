@@ -29,45 +29,52 @@ function EventsList() {
       </div>
       <ul className="list">
         <li className="item" onMouseEnter={playAudioOnHover}>
-          <a href="/Games" className="link">
+          <a href="/Photography" className="link">
             <img src={Border} className="image initial-image" alt="Initial" />
             <img src={blueBorder} className="image hover-image" alt="Hover" />
             <div className="text">Pixelate</div>
           </a>
         </li>
         <li className="item" onMouseEnter={playAudioOnHover}>
-          <a href="/BGMI" className="link">
+          <a href="/IrixIconic" className="link">
             <img src={Border2} className="image initial-image" alt="Initial" />
             <img src={blueBorder2} className="image hover-image" alt="Hover" />
             <div className="text">I-rix Iconic</div>
           </a>
         </li>
         <li className="item" onMouseEnter={playAudioOnHover}>
-          <a href="/Games" className="link">
+          <a href="/LogoMaking" className="link">
             <img src={Border} className="image initial-image" alt="Initial" />
             <img src={blueBorder} className="image hover-image" alt="Hover" />
             <div className="text">Pixel Power-Up</div>
           </a>
         </li>
         <li className="item" onMouseEnter={playAudioOnHover}>
-          <a href="/BGMI" className="link">
+          <a href="/MusicMixing" className="link">
             <img src={Border2} className="image initial-image" alt="Initial" />
             <img src={blueBorder2} className="image hover-image" alt="Hover" />
             <div className="text">ByteBeat Fusion</div>
           </a>
         </li>
         <li className="item" onMouseEnter={playAudioOnHover}>
-          <a href="/Games" className="link">
+          <a href="/TechGlam" className="link">
             <img src={Border} className="image initial-image" alt="Initial" />
             <img src={blueBorder} className="image hover-image" alt="Hover" />
             <div className="text">Tech Glam</div>
           </a>
         </li>
         <li className="item" onMouseEnter={playAudioOnHover}>
-          <a href="/BGMI" className="link">
+          <a href="/ReelMaking" className="link">
             <img src={Border2} className="image initial-image" alt="Initial" />
             <img src={blueBorder2} className="image hover-image" alt="Hover" />
             <div className="text">Reelscape</div>
+          </a>
+        </li>
+        <li className="item" onMouseEnter={playAudioOnHover}>
+          <a href="/MemeMaking" className="link">
+            <img src={Border} className="image initial-image" alt="Initial" />
+            <img src={blueBorder} className="image hover-image" alt="Hover" />
+            <div className="text">Meme Making</div>
           </a>
         </li>
       </ul>

@@ -12,7 +12,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { moreFunction, backoptions } from './HomeFun'
 
 import SocialIcons from './SocialIcons'
-
+import waffle from './assets/waffle.png'
 import './Home.animation.css'
 import './App.css'
 import Loader from './components/loader/index'
@@ -83,6 +83,7 @@ function Home({ open, setOpen, handleOpen, handleClose, inProp, setInProp }) {
         <Grid>
           <Grid container>
             {/* for Menu */}
+            
             <Grid
               container
               columns={{ lg: 13, sm: 12, xs: 12 }}
@@ -91,6 +92,12 @@ function Home({ open, setOpen, handleOpen, handleClose, inProp, setInProp }) {
             >
               <Grid item lg={12} className="menupad" id="mainpage">
                 <Grid className="menufont" container alignItems="center">
+
+
+
+                  
+
+                  
                   <Grid item container justifyContent="center" lg={6} xs={12}>
                     {/* {userInfo ? (
                       <Link to="/profile" className="menulink">
@@ -107,14 +114,31 @@ function Home({ open, setOpen, handleOpen, handleClose, inProp, setInProp }) {
                         </div>
                       </Link>
                     )} */}
-                    <Link to="/Events" className="menulink">
-                      Events
+                    <Link to="/About" className="menulink">
+                      About
                       <div>
                         <img className="test3" src={line1} alt="line" />
                       </div>
                     </Link>
                   </Grid>
                   <Grid
+                    item
+                    container
+                    justifyContent={{ lg: 'flex-end', xs: 'center' }}
+                    lg={6}
+                    xs={12}
+                    order={{ lg: 3, xs: 2 }}
+                    className={classes.events}
+                  >
+                    <Link to="/Events" className="menulink">
+                      Events
+                      <div>
+                      <img className="test3" src={line1} alt="line" style={{ marginLeft: '1px' }} />
+
+                      </div>
+                    </Link>
+                  </Grid>
+                  {/* <Grid
                     item
                     container
                     justifyContent={{ lg: 'flex-end', xs: 'center' }}
@@ -130,7 +154,8 @@ function Home({ open, setOpen, handleOpen, handleClose, inProp, setInProp }) {
                         </div>
                       </Link>
                     </div>
-                  </Grid>
+                  </Grid> */}
+                  
                   <Grid
                     item
                     container
@@ -143,7 +168,7 @@ function Home({ open, setOpen, handleOpen, handleClose, inProp, setInProp }) {
                     <Link to="/Partners" className="menulink">
                       Partners
                       <div>
-                      <img className="test3" src={line1} alt="line" style={{ marginLeft: '50px' }} />
+                      <img className="test3" src={line1} alt="line" style={{ marginLeft: '60px' }} />
 
                       </div>
                     </Link>
@@ -157,7 +182,7 @@ function Home({ open, setOpen, handleOpen, handleClose, inProp, setInProp }) {
                     order={{ lg: 4, xs: 3 }}
                     className={classes.News}
                   >
-                    <Link to="/eventregister" className='menulink'>
+                    <Link to="/Reg" className='menulink'>
                     <div
                       className="menulink"
                       style={{ cursor: 'pointer' }}
@@ -275,6 +300,7 @@ function Home({ open, setOpen, handleOpen, handleClose, inProp, setInProp }) {
             ) : null} */}
 
             {/* ------------------------------------Main Sponser Icons----------------------------------------------------- */}
+            {/* <img src={waffle} style={{width:'120px',height:'100px',marginLeft:'50px'}}/> */}
 
             {/* ------------------------------------End Main Sponser Icons----------------------------------------------------- */}
           </Grid>

@@ -1,3 +1,21 @@
+.TimetableContainer {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* Adjust this value based on your aspect ratio */
+  overflow: hidden;
+}
+
+.TimetableContainer iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  border: none;
+}
+
+
 /* Card Styling */
 .container {
   display: flex;
@@ -10,10 +28,10 @@
 
 .card {
   border-radius: 10px;
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Use transform for the pop-out effect */
+  transition: background-color 0.3s ease, transform 0.3s ease;
   margin: 15px auto;
   box-sizing: border-box;
-  overflow: hidden; /* Ensure the pop-out effect is visible */
+  overflow: hidden; 
 }
 
 .card:hover {
@@ -37,10 +55,10 @@
 }
 
 /* Making Cards Square */
-.card {
+/* .card {
   width: 300px;
   height: 300px;
-}
+} */
 
 /* Responsive Styling */
 @media (max-width: 900px) {

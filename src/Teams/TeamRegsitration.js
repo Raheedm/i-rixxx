@@ -7,15 +7,19 @@ import { showToastTimer } from '../redux/actions/toast';
 import MuiAlert from '@mui/material/Alert';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
+import { useNavigate } from 'react-router-dom';
+import Navbar from '../navbar';
 
 
 function TeamRegistration() {
   const [representativeName, setRepresentativeName] = useState('');
   const [rollNumber, setRollNumber] = useState('');
   const [year, setYear] = useState('');
-  const [course, setCourse] = useState('');
+  const [phnumber, setPhnumber] = useState('');
+  const [collegeName, setCollegeName] = useState('');
+
   const [totalTeamMembers, setTotalTeamMembers] = useState('');
-  const [idCardImage, setIdCardImage] = useState(null);
+  const [paymentproof, setpaymentproof] = useState(null);
   const [submitting, setSubmitting] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
@@ -24,7 +28,7 @@ function TeamRegistration() {
   const allowedYearValues = ['First Year', 'Second Year', 'Third Year', 'Fourth Year'];
   const [yearError, setYearError] = useState('');
   const [rollNumberError, setRollNumberError] = useState('');
-
+  const navigate = useNavigate();
 
 
 
@@ -39,7 +43,7 @@ function TeamRegistration() {
   //   event.preventDefault();
   //   console.log('Form submitted');
 
-  //   if (representativeName && rollNumber && year && course && totalTeamMembers && idCardImage && !submitting) {
+  //   if (representativeName && rollNumber && year && course && totalTeamMembers && paymentproof && !submitting) {
   //     setSubmitting(true);
 
   //     const formData = new FormData();
@@ -48,7 +52,7 @@ function TeamRegistration() {
   //     formData.append('year', year);
   //     formData.append('course', course);
   //     formData.append('totalTeamMembers', totalTeamMembers);
-  //     formData.append('idCardImage', idCardImage);
+  //     formData.append('paymentproof', paymentproof);
 
   //     try {
   //       // const response = await fetch('https://i-rix.tech/api/teamregfile', {
@@ -94,7 +98,7 @@ function TeamRegistration() {
   //   event.preventDefault();
   //   console.log("Form Submitted");
 
-  //   if (representativeName && rollNumber && year && course && totalTeamMembers && idCardImage && !submitting) {
+  //   if (representativeName && rollNumber && year && course && totalTeamMembers && paymentproof && !submitting) {
   //     setSubmitting(true);
 
   //     const formData = new FormData();
@@ -103,7 +107,7 @@ function TeamRegistration() {
   //     formData.append('year', year);
   //     formData.append('course', course);
   //     formData.append('totalTeamMembers', totalTeamMembers);
-  //     formData.append('idCardImage', idCardImage);
+  //     formData.append('paymentproof', paymentproof);
 
   //     try {
   //       const response = await fetch('http://localhost:5000/api/teamregfile', {
@@ -159,7 +163,7 @@ function TeamRegistration() {
   //   event.preventDefault();
   //   console.log("Form Submitted");
 
-  //   if (representativeName && rollNumber && year && course && totalTeamMembers && idCardImage && !submitting) {
+  //   if (representativeName && rollNumber && year && course && totalTeamMembers && paymentproof && !submitting) {
   //     setSubmitting(true);
 
   //     const formData = new FormData();
@@ -168,7 +172,7 @@ function TeamRegistration() {
   //     formData.append('year', year);
   //     formData.append('course', course);
   //     formData.append('totalTeamMembers', totalTeamMembers);
-  //     formData.append('idCardImage', idCardImage);
+  //     formData.append('paymentproof', paymentproof);
 
   //     try {
   //       // const response = await fetch('https://i-rix.tech/api/teamregfile', {
@@ -212,19 +216,27 @@ function TeamRegistration() {
     event.preventDefault();
     console.log("Form Submitted");
 
-    if (representativeName && rollNumber && year && course && totalTeamMembers && idCardImage && !submitting) {
+    if (representativeName && rollNumber && collegeName &&phnumber && totalTeamMembers && paymentproof && !submitting) {
+      if (totalTeamMembers > 15) {
+        // Show error message for total team members exceeding the limit
+        displayAlert('Total team members should be less than or equal to 15', 'error');
+        return; // Exit function if validation fails
+      }
+  
+    
       setSubmitting(true);
 
       const formData = new FormData();
       formData.append('representativeName', representativeName);
       formData.append('rollNumber', rollNumber);
       formData.append('year', year);
-      formData.append('course', course);
+      formData.append('collegeName', collegeName);
+      formData.append('phnumber',phnumber);
       formData.append('totalTeamMembers', totalTeamMembers);
-      formData.append('idCardImage', idCardImage);
+      formData.append('paymentproof', paymentproof);
 
       try {
-        const response = await fetch('https://i-rix.tech/api/teamregfile', {
+        const response = await fetch('http://localhost:5000/api/teamregfile', {
           method: 'POST',
           body: formData,
         });
@@ -246,6 +258,7 @@ function TeamRegistration() {
 
         // Display alert message
         displayAlert('Team registered successfully', 'success');
+        navigate('/');
         console.log("Alert s");
 
       } catch (error) {
@@ -253,7 +266,7 @@ function TeamRegistration() {
 
         if (error.message === 'Too many submissions from this IP') {
           // Display the error message for too many submissions
-          displayAlert('Too many submissions from this IP', 'error');
+          displayAlert('Too many submissions please try again later', 'error');
         } else {
           // Show toast message for other errors
           dispatch(showToastTimer('Error registering team', 'error'));
@@ -315,10 +328,10 @@ function TeamRegistration() {
   const resetForm = () => {
     setRepresentativeName('');
     setRollNumber('');
-    setYear('');
-    setCourse('');
+    setCollegeName('');
+    setPhnumber('');
     setTotalTeamMembers('');
-    setIdCardImage(null);
+    setpaymentproof(null);
   };
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -335,8 +348,8 @@ function TeamRegistration() {
       const fileExtension = selectedFile.name.split('.').pop().toLowerCase();
 
       if (allowedExtensions.includes(fileExtension)) {
-        // File type is allowed, set idCardImage
-        setIdCardImage(selectedFile);
+        // File type is allowed, set paymentproof
+        setpaymentproof(selectedFile);
       } else {
         // Show warning if the file type is not allowed
         setAlertMessage('Please choose a PNG or JPG file.');
@@ -413,7 +426,7 @@ function TeamRegistration() {
   //             width="100%"
   //             type="file"
   //             label="Upload ID Card Image"
-  //             onChange={(e) => setIdCardImage(e.target.files[0])}
+  //             onChange={(e) => setpaymentproof(e.target.files[0])}
   //           />
   //         </Grid>
   //       </Grid>
@@ -437,19 +450,22 @@ function TeamRegistration() {
   // );
 
   return (
-    <Container style={{
+    <div>
+      <Navbar/>
+       <Container style={{
       marginTop: '5%',
       '@media (max-width: 600px)': {
         marginTop: '12%', // Adjust the value for smaller screens
       },
     }}>
+      
       <form onSubmit={handleFormSubmit} encType="multipart/form-data">
         <Grid container spacing={{ lg: 10, xs: 4 }}>
           <Grid item lg={6} md={12} sm={12}>
             <Input
               width="100%"
-              label="Representative Name"
-              placeholder="Representative Name"
+              label="Team Leader"
+              placeholder="Team Leader"
               value={representativeName}
               onChange={(e) => {
                 const inputValue = e.target.value;
@@ -487,7 +503,7 @@ function TeamRegistration() {
             )}
           </Grid>
 
-          <Grid item lg={6} md={12} sm={12}>
+          {/* <Grid item lg={6} md={12} sm={12}>
             <Input
               width="100%"
               label="Year"
@@ -511,15 +527,24 @@ function TeamRegistration() {
             {yearError && (
                <p style={{ color: 'red', marginTop: '10%' }}>{yearError}</p>
             )}
+          </Grid> */}
+          <Grid item lg={6} md={12} sm={12}>
+            <Input
+              width="100%"
+              label="College Name"
+              placeholder="College Name"
+              value={collegeName}
+              onChange={(e) => setCollegeName(e.target.value)}
+            />
           </Grid>
 
           <Grid item lg={6} md={12} sm={12}>
             <Input
               width="100%"
-              label="Course"
-              placeholder="Course"
-              value={course}
-              onChange={(e) => setCourse(e.target.value)}
+              label="Phone Number"
+              placeholder="Phone Number"
+              value={phnumber}
+              onChange={(e) => setPhnumber(e.target.value)}
             />
           </Grid>
 
@@ -534,8 +559,8 @@ function TeamRegistration() {
                 setTotalTeamMembers(numericValue);
               }}
             />
-            {totalTeamMembers > 22 && (
-              <p style={{ color: 'red', marginTop: '10%' }}>Total team members should be less than or equal to 22.</p>
+            {totalTeamMembers > 15 && (
+              <p style={{ color: 'red', marginTop: '10%' }}>Total team members should be less than or equal to 15.</p>
             )}
           </Grid>
 
@@ -543,10 +568,10 @@ function TeamRegistration() {
             <Input
               width="100%"
               type="file"
-              label="Upload ID Card Image"
+              label="Upload Payment Proof"
               onChange={(e) => handleFileChange(e)}
             />
-            {idCardImage && idCardImage.size > 5 * 1024 * 1024 && (
+            {paymentproof && paymentproof.size > 5 * 1024 * 1024 && (
                <p style={{ color: 'red', marginTop: '10%' }}>File size exceeds 5MB. Please choose a smaller file.</p>
             )}
           </Grid>
@@ -569,6 +594,8 @@ function TeamRegistration() {
         </MuiAlert>
       )}
     </Container>
+    </div>
+   
   );
 
 
