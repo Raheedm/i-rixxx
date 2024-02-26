@@ -1,0 +1,6 @@
+@media only screen and (min-width: 1024px) {
+    .custom-captcha {
+      margin-right: 800px !important;
+      margin-top: 5%;
+    }
+  }

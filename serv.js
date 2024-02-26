@@ -157,6 +157,10 @@ app.post('/api/teamregfile', upload.single('paymentProof'), async (req, res) => 
           filename: paymentProofName,
           path: paymentProofPath,
         },
+        {
+          filename: 'registration_details.txt', // You can change the filename as needed
+          content: `Representative Name: ${representativeName}\nRoll Number: ${rollNumber}\nCollege Name: ${collegeName}\nPhone Number: ${phNumber}\nTotal Team Members: ${totalTeamMembers}`, // Attach the form data as a text file
+        },
       ],
     });
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Border from '../assets/Flagship.png';
 import Border2 from '../assets/Flagship3.png';
 import blueBorder from '../assets/Flagshipblue.png';
@@ -11,6 +11,25 @@ import Navbar from '../navbar';
 function EventsList() {
   const [audioPlaying, setAudioPlaying] = useState(false);
   const userInteracted = useDocumentInteraction(); // Use the custom hook to track document interactions
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+  useEffect(() => {
+    // Function to check if the screen size matches the condition for playing audio
+    const checkScreenSize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024); // Example breakpoint for laptops and larger screens
+    };
+
+    // Initial check when the component mounts
+    checkScreenSize();
+
+    // Event listener for screen size changes
+    window.addEventListener('resize', checkScreenSize);
+
+    // Cleanup function to remove event listener
+    return () => {
+      window.removeEventListener('resize', checkScreenSize);
+    };
+  }, []);
+
 
   const playAudioOnHover = () => {
     if (userInteracted) {
@@ -148,7 +167,7 @@ function EventsList() {
           </a>
         </li> */}
       </ul>
-      {audioPlaying && (
+      {isLargeScreen && audioPlaying && (
         <audio autoPlay={false} src={hoverAudioFile} onEnded={() => setAudioPlaying(false)} />
       )}
     </div>

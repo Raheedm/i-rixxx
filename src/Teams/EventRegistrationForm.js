@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from '../navbar';
 import QR from '../assets/AKQR.jpeg'
 import ReCAPTCHA from 'react-google-recaptcha';
+import CustomCAPTCHA from '../CustomCAPTCHA';
 
 
 function TeamRegistration() {
@@ -25,6 +26,9 @@ function TeamRegistration() {
     const [showQR, setShowQR] = useState(false);
     const [rollNumberError, setRollNumberError] = useState('');
     const [hiddenFieldValue, setHiddenFieldValue] = useState('');
+    const [captcha, setCaptcha] = useState(generateCaptcha());
+const [userInput, setUserInput] = useState('');
+const [error, setError] = useState('')
 
     const handleToggleQR = () => {
         setShowQR(!showQR);
@@ -34,7 +38,15 @@ function TeamRegistration() {
         const regex = /^[A-Za-z0-9]+$/;
         return regex.test(value) ? null : 'Invalid Roll Number. Please enter a valid Roll Number.';
     };
-
+    function generateCaptcha() {
+        // Generate a random 4-character alphanumeric string for the CAPTCHA
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let captcha = '';
+        for (let i = 0; i < 4; i++) {
+            captcha += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return captcha;
+    }
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -42,6 +54,21 @@ function TeamRegistration() {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         console.log("Form Submitted");
+        if (!userInput.trim()) {
+            // CAPTCHA field is empty, display error message
+            alert('Please enter the CAPTCHA code.');
+            return; // Exit function if CAPTCHA field is empty
+        }
+
+        if (userInput.toUpperCase() !== captcha.toUpperCase()) {
+            // CAPTCHA verification failed, display error message
+            setError('Incorrect CAPTCHA. Please try again.');
+            // Generate a new CAPTCHA code
+            setCaptcha(generateCaptcha());
+            return; // Exit function if CAPTCHA verification fails
+        }
+
+
         if (hiddenFieldValue) {
             console.log('Bot detected. Form submission blocked.');
             return;
@@ -244,7 +271,7 @@ function TeamRegistration() {
                                 onChange={handleFileChange}
                             />
                         </Grid>
-                        
+
                         <div style={{ display: 'inline-block' }}>
                             <h2
                                 style={{
@@ -259,6 +286,7 @@ function TeamRegistration() {
                                     borderRadius: '8px',
                                     minWidth: '150px', // Add a minimum width to prevent size change
                                     boxSizing: 'border-box', // Ensure padding and border are included in the width
+                                    marginLeft:'25px',
                                 }}
                                 onClick={handleToggleQR}
                             >
@@ -279,15 +307,23 @@ function TeamRegistration() {
                         </div>
 
                         <input
-                    type="text"
-                    name="bot-field"
-                    style={{ display: 'none' }}
-                    value={hiddenFieldValue}
-                    onChange={(e) => setHiddenFieldValue(e.target.value)}
+                            type="text"
+                            name="bot-field"
+                            style={{ display: 'none' }}
+                            value={hiddenFieldValue}
+                            onChange={(e) => setHiddenFieldValue(e.target.value)}
+                        />
+                        <CustomCAPTCHA
+                    captcha={captcha}
+                    setCaptcha={setCaptcha}
+                    userInput={userInput}
+                    setUserInput={setUserInput}
+                    error={error}
+                    setError={setError}
                 />
-
+                        
                     </Grid>
-                    
+
                     <div style={{ margin: '2rem 0', display: 'flex', justifyContent: 'center' }}>
                         <Button type="submit" disabled={submitting}>
                             {submitting ? 'Submitting...' : 'Register Team'}
