@@ -5,16 +5,12 @@ import { CssBaseline } from '@mui/material';
 import theme from './theme';
 import './fonts.css';
 import './App.css';
-import TeamRegistration from './Teams/TeamRegsitration';
-import bgvideo2 from './assets/irixbg3.mp4';
 import HomeNav from './HomeNav';
 import ToastBar from './components/Toast/ToastBar';
 import Footer from './components/footer';
 import Home from './Home';
 import Events from './Events/Events';
 import Technical from './Events/Technical';
-import Navbar from './navbar';
-import bgimg from './assets/backgroundimg.png';
 import NonTechnical from './Events/NonTechnical';
 import Webathon from './AllEvents/webathon'
 import bg3 from './assets/irix-bg.mov'
@@ -83,7 +79,7 @@ function App() {
   <span className="small-text">1<sup>st</sup> &amp; 2<sup>nd</sup></span>
 </div> */}
 
-        {/* <img src={bgimg} alt="bgvideo" className="videoTag" /> */}
+        
         <div
           className="nav1"
           style={{ minHeight: '100vh', height: '100%', opacity: open ? '0.5' : '' }}

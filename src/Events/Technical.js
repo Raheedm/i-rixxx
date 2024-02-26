@@ -142,7 +142,7 @@ function EventsList() {
           <a href="/PitchDeck" className="link">
             <img src={Border} className="image initial-image" alt="Initial" />
             <img src={blueBorder} className="image hover-image" alt="Hover" />
-            <div className="text">Pitch Deck</div>
+            <div className="text">Entrepreneurial Showdown</div>
           </a>
         </li>
         <li className="item" onMouseEnter={playAudioOnHover}>
