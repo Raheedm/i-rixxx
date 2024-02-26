@@ -29,7 +29,7 @@ function TeamRegistration() {
     const [captcha, setCaptcha] = useState(generateCaptcha());
 const [userInput, setUserInput] = useState('');
 const [error, setError] = useState('')
-
+const [captchaVerified, setCaptchaVerified] = useState(false);
     const handleToggleQR = () => {
         setShowQR(!showQR);
     };
@@ -314,13 +314,15 @@ const [error, setError] = useState('')
                             onChange={(e) => setHiddenFieldValue(e.target.value)}
                         />
                         <CustomCAPTCHA
-                    captcha={captcha}
-                    setCaptcha={setCaptcha}
-                    userInput={userInput}
-                    setUserInput={setUserInput}
-                    error={error}
-                    setError={setError}
-                />
+                captcha={captcha}
+                setCaptcha={setCaptcha}
+                userInput={userInput}
+                setUserInput={setUserInput}
+                error={error}
+                setError={setError}
+                captchaVerified={captchaVerified}
+                setCaptchaVerified={setCaptchaVerified}
+            />
                         
                     </Grid>
 
