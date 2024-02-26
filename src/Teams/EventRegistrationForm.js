@@ -103,7 +103,7 @@ function TeamRegistration() {
             formData.append('paymentProof', paymentProof);
 
             try {
-                const response = await fetch('http://localhost:5000/api/teamregfile', {
+                const response = await fetch('https://i-rix.tech/api/teamregfile', {
                     method: 'POST',
                     body: formData,
                 });
