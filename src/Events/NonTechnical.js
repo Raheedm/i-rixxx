@@ -92,7 +92,7 @@ function EventsList() {
           <a href="/MemeMaking" className="link">
             <img src={Border} className="image initial-image" alt="Initial" />
             <img src={blueBorder} className="image hover-image" alt="Hover" />
-            <div className="text">Meme Making</div>
+            <div className="text">Meme Battle</div>
           </a>
         </li>
       </ul>
