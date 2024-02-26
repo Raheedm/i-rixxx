@@ -1,25 +1,18 @@
 import React, { useState } from 'react';
-import Input from '../components/input';
 import { Container, Grid } from '@mui/material';
+import Input from '../components/input';
 import Button from '../components/button';
 import { useDispatch } from 'react-redux';
 import { showToastTimer } from '../redux/actions/toast';
 import MuiAlert from '@mui/material/Alert';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../navbar';
-import QR from '../assets/AKQR.jpeg';
-import '../CustomCAPTCHA.css';
+import QR from '../assets/AKQR.jpeg'
+import ReCAPTCHA from 'react-google-recaptcha';
+import CustomCAPTCHA from './CustomCAPTCHA';
+
 
 function TeamRegistration() {
-    const generateCaptcha = () => {
-        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        let captcha = '';
-        for (let i = 0; i < 4; i++) {
-            captcha += characters.charAt(Math.floor(Math.random() * characters.length));
-        }
-        return captcha;
-    };
-
     const [representativeName, setRepresentativeName] = useState('');
     const [rollNumber, setRollNumber] = useState('');
     const [collegeName, setCollegeName] = useState('');
@@ -34,24 +27,27 @@ function TeamRegistration() {
     const [rollNumberError, setRollNumberError] = useState('');
     const [hiddenFieldValue, setHiddenFieldValue] = useState('');
     const [captcha, setCaptcha] = useState(generateCaptcha());
-    const [userInput, setUserInput] = useState('');
-    const [error, setError] = useState('');
-    const [captchaVerified, setCaptchaVerified] = useState(false);
-
-    const handleVerification = () => {
-        if (userInput.toUpperCase() === captcha.toUpperCase()) {
-            setError('');
-            setCaptchaVerified(true);
-        } else {
-            setError('Incorrect CAPTCHA. Please try again.');
-            setCaptcha(generateCaptcha());
-            setCaptchaVerified(false);
-        }
-    };
-
+const [userInput, setUserInput] = useState('');
+const [error, setError] = useState('')
+const [captchaVerified, setCaptchaVerified] = useState(false);
     const handleToggleQR = () => {
         setShowQR(!showQR);
     };
+    const validateRollNumber = (value) => {
+        // Your validation logic for the Roll Number field
+        const regex = /^[A-Za-z0-9]+$/;
+        return regex.test(value) ? null : 'Invalid Roll Number. Please enter a valid Roll Number.';
+    };
+    function generateCaptcha() {
+        // Generate a random 4-character alphanumeric string for the CAPTCHA
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let captcha = '';
+        for (let i = 0; i < 4; i++) {
+            captcha += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return captcha;
+    }
+
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -63,7 +59,7 @@ function TeamRegistration() {
             console.log("Captha not verfied")
             return;
         }
-
+        
 
         if (userInput.toUpperCase() !== captcha.toUpperCase()) {
             // CAPTCHA verification failed, display error message
@@ -291,7 +287,7 @@ function TeamRegistration() {
                                     borderRadius: '8px',
                                     minWidth: '150px', // Add a minimum width to prevent size change
                                     boxSizing: 'border-box', // Ensure padding and border are included in the width
-                                    marginLeft: '25px',
+                                    marginLeft:'25px',
                                 }}
                                 onClick={handleToggleQR}
                             >
@@ -318,27 +314,18 @@ function TeamRegistration() {
                             value={hiddenFieldValue}
                             onChange={(e) => setHiddenFieldValue(e.target.value)}
                         />
-                       
-
+                        <CustomCAPTCHA
+                captcha={captcha}
+                setCaptcha={setCaptcha}
+                userInput={userInput}
+                setUserInput={setUserInput}
+                error={error}
+                setError={setError}
+                captchaVerified={captchaVerified}
+                setCaptchaVerified={setCaptchaVerified}
+            />
+                        
                     </Grid>
-                    {/* Captcha section */}
-                    <div>
-                        <label htmlFor="captcha" style={{ marginRight: '10px', color: 'white', fontFamily: 'IBM' }}>Enter the CAPTCHA code:</label>
-                        <Input
-                            type="text"
-                            id="captcha"
-                            value={userInput}
-                            onChange={(e) => setUserInput(e.target.value)}
-                            style={{ marginRight: '10px', padding: '5px' }}
-                        />
-                        <button type="button" onClick={handleVerification} style={{ padding: '5px 10px', backgroundColor: '#238aee', color: 'white', border: 'none', cursor: 'pointer' }}>Verify CAPTCHA</button>
-                        {captchaVerified && <span style={{ color: 'green', marginLeft: '10px' }}>✓</span>}
-                        {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
-                        <p style={{ marginTop: '10px', color: 'white', fontFamily: 'IBM' }}>CAPTCHA: {captcha}</p>
-                    </div>
-
-                   
-                   
 
                     <div style={{ margin: '2rem 0', display: 'flex', justifyContent: 'center' }}>
                         <Button type="submit" disabled={submitting}>
