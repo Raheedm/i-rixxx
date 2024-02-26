@@ -54,11 +54,11 @@ const [error, setError] = useState('')
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         console.log("Form Submitted");
-        if (!userInput.trim()) {
-            // CAPTCHA field is empty, display error message
-            alert('Please enter the CAPTCHA code.');
-            return; // Exit function if CAPTCHA field is empty
+        if (!captchaVerified) {
+            setError('Please verify the CAPTCHA.');
+            return;
         }
+        
 
         if (userInput.toUpperCase() !== captcha.toUpperCase()) {
             // CAPTCHA verification failed, display error message
